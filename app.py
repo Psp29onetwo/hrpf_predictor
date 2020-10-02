@@ -26,9 +26,9 @@ def predict():
     prediction = int(result['live'])
     data = ''
     if prediction == 1:
-        data = 'The person can have severe heart failures.'
+        data = 'This heart failure can be fatal.'
     else:
-        data = 'Person is Healthy! Congrats.'
+        data = 'There is no chance of fatality.'
     return render_template("index.html", data = data)
     
 

@@ -2,11 +2,16 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>#1 HTML Login Form</title>
+    <title>HRPF Predictor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
     <style>
         :root {
     --body_gradient_left: #7200D0;
@@ -37,7 +42,7 @@ body {
 }
 
 #form_wrapper {
-    width: 1000px;
+    width: 1100px;
     height: 700px;
     /* this will help us center it*/
     margin: auto;
@@ -72,6 +77,8 @@ body {
     /* have some gap in between elements*/
     grid-gap: 20px;
     padding: 10% 5%;
+    width: 600px;
+    height: 350px;
 }
 
 h1,
@@ -87,6 +94,8 @@ span {
     padding-left: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    
+    
 }
 
 .input_container:hover {
@@ -98,7 +107,7 @@ span {
     height: 60px;
     /* make the borders more round */
     border-radius: 30px;
-    width: 100%;
+    width: 60%;
     margin-top: 30px;
 }
 
@@ -172,17 +181,48 @@ i {
         display: none;
     }
 }
+
+.carousel{
+    background: #ffffff;
+    margin-top: 20px;
+}
+.carousel-item{
+    text-align: center;
+    min-height: 280px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+}
+.carousel-item{
+    text-align: center;
+}
+.form-group{
+    width: 400px;
+    text-align: center;
+    display: block;
+}
+.carousel-inner{
+    text-align: center;
+    display: block;   
+}
+.container-sm{
+    position: relative;
+    bottom: 50px;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+}
     </style>
+   
 </head>
 
 <body>
     <div id="form_wrapper">
         <div id="form_left">
-            <img src="/static/heart.jpg" alt="heart icon" width="200" height="200">
+            <img src="/static/heart.jpg" alt="heart icon" width="200" height="200" style="position: relative; left: 50px;">
         </div>
         <div id="form_right">
             <h1>HRPF predictor</h1>
-            <form method="POST" action="http://127.0.0.1:5000/predict">
+            <!-- <form method="POST" action="http://127.0.0.1:5000/predict">
                 <div class="input_container" style="">
                     <input placeholder="Time" type="text" name="time" class='input_field'>
                 </div>
@@ -196,11 +236,111 @@ i {
                     <input placeholder="Age" type="text" name="age" class='input_field'>
                 </div>
                 <input type="submit" id='input_submit' class='input_field'>
-            </form>
-           
-        </div>
-      
-    </div>
+            </form> -->
+        <form method="POST" action="http://127.0.0.1:5000/predict">
+            <div class="container-sm my-3">
+                <div id="carouselExampleControls" class="carousel slide" data-interval="false">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">  
+                            <div class="parent d-flex justify-content-center">
+                                <div class="input_container">
+                                    <input  placeholder="Time" type="text" name="time" class='input_field'>
+                                </div>
+    
+                            </div>
+                            <div class="parent d-flex justify-content-center">
+                                <div class="input_container">
+                                    <input  placeholder="Ejection Fraction" type="text" name="ej_fraction" class='input_field'>
+                                </div>
+                            </div>
+                            <div class="parent d-flex justify-content-center">
+                                <div class="input_container">
+                                    <input placeholder="Serum creatinine" type="text" name="serum_creatinine" class='input_field'>
+                                </div>
+                            </div>
+                            
+                            <div class="parent d-flex justify-content-center">
+                                <div class="input_container">
+                                    <input placeholder="Age" type="text" name="age" class='input_field'>
+                                </div>
+                            </div>
+                        
+                      </div>
+                      <div class="carousel-item">
+                        <div class="parent d-flex justify-content-center">
+                            <div class="input_container">
+                                <input  placeholder="anaemia" type="text" name="time" class='input_field'>
+                            </div>
+
+                        </div>
+                        <div class="parent d-flex justify-content-center">
+                            <div class="input_container">
+                                <input  placeholder="creatinine phosphokinase" type="text" name="ej_fraction" class='input_field'>
+                            </div>
+                        </div>
+                        <div class="parent d-flex justify-content-center">
+                            <div class="input_container">
+                                <input placeholder="diabetes" type="text" name="serum_creatinine" class='input_field'>
+                            </div>
+                        </div>
+                        
+                        <div class="parent d-flex justify-content-center">
+                            <div class="input_container">
+                                <input placeholder="high blood pressure" type="text" name="age" class='input_field'>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="parent d-flex justify-content-center">
+                            <div class="input_container">
+                                <input  placeholder="platelets" type="text" name="time" class='input_field'>
+                            </div>
+
+                        </div>
+                        <div class="parent d-flex justify-content-center">
+                            <div class="input_container">
+                                <input  placeholder="serum sodium" type="text" name="ej_fraction" class='input_field'>
+                            </div>
+                        </div>
+                        <div class="parent d-flex justify-content-center">
+                            <div class="input_container">
+                                <input placeholder="sex" type="text" name="serum_creatinine" class='input_field'>
+                            </div>
+                        </div>
+                        
+                        <div class="parent d-flex justify-content-center">
+                            <div class="input_container">
+                                <input placeholder="smoking" type="text" name="age" class='input_field'>
+                            </div>
+                        </div>
+                      </div>
+                      
+                      <div class="carousel-item">
+                        <div class="parent d-flex justify-content-center">
+                            <div class="input_container">
+                                <input  placeholder="DEATH EVENT" type="text" name="time" class='input_field'>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+            </div>
+            <input type="submit" id='input_submit' class='input_field' style="position: relative; left: 105px; bottom: 10px;">
+        </form>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

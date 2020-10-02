@@ -22,8 +22,6 @@ def predict():
         age = float(request.form['age'])
    
     features = [time, ejectionFraction, serum_Creatinine, age]
-    print(features)
-    print(type(request.form))
     result = model.predict(features)
     prediction = int(result['live'])
     data = ''
